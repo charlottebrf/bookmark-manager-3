@@ -1,8 +1,5 @@
 require 'data_mapper'
-require 'dm-migrations'
-
-DataMapper::Logger.new($stdout, :debug)
-DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
+require 'dm-postgres-adapter'
 
 class Link
   include DataMapper::Resource
@@ -11,5 +8,7 @@ class Link
   property :title, String
 end
 
+DataMapper::Logger.new($stdout, :debug)
+DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
 DataMapper.finalize
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
