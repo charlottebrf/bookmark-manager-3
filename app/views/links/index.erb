@@ -1,5 +1,18 @@
 <h1> Links </h1>
 
+<form action='/links' method='POST'>
+  <label for='title'>
+    Title:
+    <input type='text' name='title'/>
+  </label>
+  <label for='url'>
+    URL:
+    <input type='text' name='url'/>
+  </label>
+  <input type="submit" value="Create link">
+</form>
+
+
 <ul id='links'>
   <% @links.each do |link| %>
   <li>

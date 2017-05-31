@@ -1,12 +1,15 @@
-feature "Adding Links do" do
-  scenario "I can add a new link to the links page" do
+feature "Creating links" do
+
+  before do
+    Link.destroy
+  end
+
+  scenario "I can create a new link" do
     visit '/links'
-    find_button('Add link').click
-    click_link('Add link')
-    visit '/links/new'
-    Link.create(url: 'http://www.codefirstgirls.org.uk/', title: 'Code First: Girls')
-    expect(page.status_code).to eq 200
-    visit '/links'
+    fill_in 'title', with: 'Code First: Girls'
+    fill_in 'url', with: 'http://www.codefirstgirls.org.uk'
+    click_button 'Create link'
+    expect(current_path).to eq '/links'
     within 'ul#links' do
       expect(page).to have_content('Code First: Girls')
     end
