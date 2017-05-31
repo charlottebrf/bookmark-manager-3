@@ -1,9 +1,5 @@
 feature "Creating links" do
-
-  before do
-    Link.destroy
-  end
-
+  
   scenario "I can create a new link" do
     visit '/links'
     fill_in 'title', with: 'Code First: Girls'

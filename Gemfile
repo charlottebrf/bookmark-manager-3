@@ -5,6 +5,7 @@ gem 'dm-postgres-adapter'
 gem 'data_mapper'
 gem 'rake'
 gem 'sinatra'
+gem 'database_cleaner'
 
 group :test do
   gem 'capybara'
